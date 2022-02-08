@@ -1,0 +1,180 @@
+@use "base" as *;
+@use "abstracts" as *;
+
+body
+{
+    background-color: $violet;
+    background-image: url(/images/bg-mobile.svg);
+    background-repeat: no-repeat;
+    font-family: $font-secondary;
+
+    @include responsive(tablet)
+    {
+        background-image: url(/images/bg-mobile.svg);
+        background-position: center top;
+    }
+
+    @include responsive(desktop)
+    {
+        background-image: url(/images/bg-desktop.svg);
+        background-size: contain;
+        background-position: left 20px bottom 50px;
+        overflow-y: hidden;
+    }
+}
+
+.header
+{
+    padding: 1.5em 0 4.5em 2em;
+    display: flex;
+    align-items: flex-start;
+
+    @include responsive(desktop)
+    {
+        padding: 2.5em 0 3.5em 6.5em;
+    }
+
+    &__logo
+    {
+        width: 120px;
+
+        @include responsive(desktop)
+        {
+            width: 190px;
+        }
+    }
+}
+
+.community
+{
+    text-align: center;
+
+    @include responsive(desktop)
+    {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__illustration
+    {
+        width: 300px;
+
+        @include responsive(tablet)
+        {
+            width: 350px;
+        }
+
+        @include responsive(desktop)
+        {
+            width: 600px;
+            margin-left: 5em;
+        }
+    }
+
+    &__container
+    {
+
+        @include responsive(desktop)
+        {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__title
+    {
+        font-family: $font-primary;
+        color: #fff;
+        font-weight: map-get($font-weights, semi-bold);
+        padding: 2em 2.5em 0;
+        font-size: 23px;
+        line-height: 1.5;
+
+        @include responsive(desktop)
+        {
+            font-size: 36px;
+            transform: translate(-1em, -2em);
+            width: 450px;
+            text-align: start;
+        }
+    }
+
+    &__text
+    {
+        color: rgba($color: #fff, $alpha: .8);
+        padding: 0 3em;
+        font-size: 15px;
+        line-height: 1.5;
+        transform: translateY(-.5em);
+
+        @include responsive(desktop)
+        {
+            font-size: 16px;
+            transform: translate(.4em, -6.5em);
+            width: 460px;
+            text-align: start;
+            line-height: 1.7;
+        }
+    }
+
+    &__button
+    {
+        background-color: #fff;
+        border: none; outline: none;
+        color: $violet;
+        font-size: 13px;
+        font-family: $font-primary;
+        font-weight: map-get($font-weights, semi-bold);
+        width: 200px;
+        padding: 1em;
+        border-radius: 25px;
+        box-shadow: 0 5px 5px rgba($color: #000000, $alpha: .2);
+        cursor: pointer;
+
+        &:hover
+        {
+            background-color: $soft-magenta;
+            color: #fff;
+        }
+
+        @include responsive(desktop)
+        {
+            transform: translate(3.5em, -6em);
+            padding: 1.1em;
+            width: 180px;
+            font-size: 16px;
+            border-radius: 50px;  
+            box-shadow: 2px 5px 10px rgba($color: #000000, $alpha: .4);
+        }
+    }
+}
+
+.footer
+{
+    text-align: center;
+    margin: 4em 2em 2.5em;
+
+    .fab
+    {
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+        margin: 0 .3em;
+        border: 1px solid #fff;
+        padding: .5em;
+        border-radius: 50%;
+
+        &:hover
+        {
+            color: $soft-magenta;
+            border-color: $soft-magenta;
+        }
+
+        @include responsive(desktop)
+        {
+            font-size: 16px;
+            padding: .6em;
+            transform: translate(29em, -4em);
+        }
+    }
+}
